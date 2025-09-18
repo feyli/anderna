@@ -1,11 +1,8 @@
+/* Header */
 .siteHeader {
     background-color: #5863F8;
     height: 106px;
     width: 100%;
-}
-
-.container{
-
 }
 
 body {
@@ -13,14 +10,50 @@ body {
     padding: 0;
 }
 
+main {
+    margin-top: 225px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.container .name{
+    font-size: 3em;
+    margin-bottom: 30px;
+    color: #000000;
+}
+
 .buttons{
     align-items: center;
+    display: flex;
+    flex-direction: column;
+    border-radius: 3px;
+    gap: 15px;
 }
 
 .btn1{
+    color: white;
+    padding: 10px 25px;
+    text-decoration: none;
+    border-radius: 3px;
+    transition: background 0.3s ease;
+    background-color: #272FA0;
+}
 
+.btn1:hover{
+    background-color: #5863F8;
 }
 
 .btn2{
+    color: white;
+    padding: 10px 25px;
+    text-decoration: none;
+    border-radius: 3px;
+    transition: background 0.3s ease;
+    background-color: #272FA0;
+}
 
+.btn2:hover{
+    background-color: #5863F8;
 }

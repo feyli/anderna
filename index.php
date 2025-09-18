@@ -8,7 +8,7 @@
 <?php include 'modules/blog/controllers/views/templates/header.php'; ?>
 <main>
     <div class="container">
-        <h1>DashMed</h1>
+        <h1 class="name">DashMed</h1>
         <div class="buttons">
             <a class="btn1" href="">Se connecter</a>
             <a class="btn2" href="">S'inscrire</a>
