@@ -16,9 +16,12 @@ try {
         'email' => 'test.user@example.com',
         'pwd' => 'testpassword'
     ];
+
     $user = new User($userData);
 
     $userManager = new UserManager($db);
+
+    $userManager->deleteUserByEmail($userData['email']);
     $result = $userManager->addUser($user);
 
     if ($result) {

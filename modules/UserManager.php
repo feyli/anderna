@@ -41,5 +41,12 @@ class UserManager {
         }
         return false; // Connexion KO
     }
+
+    public function deleteUserByEmail($email) {
+        $stmt = $this->db->prepare("DELETE FROM users WHERE email = ?");
+        $stmt->bind_param("s", $email);
+        $stmt->execute();
+        return $this->db->affected_rows > 0;
+    }
 }
 ?>
