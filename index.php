@@ -15,5 +15,55 @@
         </div>
     </div>
 </main>
+    <div class="hexagone-container">
+        <div class="hexagone">
+            <div class="hexagone2"></div>
+        </div>
+        <div class="hexagone">
+            <div class="hexagone2"></div>
+        </div>
+        <div class="hexagone">
+            <div class="hexagone2"></div>
+        </div>
+        <div class="hexagone">
+            <div class="hexagone2"></div>
+        </div>
+        <div class="hexagone">
+            <div class="hexagone2"></div>
+        </div>
+        <div class="hexagone">
+            <div class="hexagone2"></div>
+        </div>
+        <div class="hexagone">
+            <div class="hexagone2"></div>
+        </div>
+        <div class="hexagone">
+            <div class="hexagone2"></div>
+        </div>
+        <div class="hexagone">
+            <div class="hexagone2"></div>
+        </div>
+        <div class="hexagone">
+            <div class="hexagone2"></div>
+        </div>
+        <div class="hexagone">
+            <div class="hexagone2"></div>
+        </div>
+        <div class="hexagone">
+            <div class="hexagone2"></div>
+        </div>
+        <div class="hexagone">
+            <div class="hexagone2"></div>
+        </div>
+        <div class="hexagone">
+            <div class="hexagone2"></div>
+        </div>
+        <div class="hexagone">
+            <div class="hexagone2"></div>
+        </div>
+        <div class="hexagone">
+            <div class="hexagone2"></div>
+        </div>
+    </div>
 </body>
 </html>
