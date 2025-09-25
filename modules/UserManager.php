@@ -22,6 +22,10 @@ class UserManager {
         return $this->db->query($sql);
     }
 
-    // Autres méthodes : getUserById, updateUser, deleteUser ...
+    public function deleteUser($id) {
+        $id = intval($id);
+        $sql = "DELETE FROM users WHERE id=$id";
+        return $this->db->query($sql);
+    }
 }
 ?>
