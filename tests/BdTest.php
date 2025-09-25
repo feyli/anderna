@@ -16,13 +16,32 @@ try {
         'email' => 'test.user@example.com',
         'pwd' => 'testpassword'
     ];
+
     $user = new User($userData);
 
     $userManager = new UserManager($db);
+
+    $userManager->deleteUserByEmail($userData['email']);
     $result = $userManager->addUser($user);
 
     if ($result) {
         echo "Utilisateur ajouté avec succès.<br>";
+
+        // Test de connexion avec le bon mot de passe
+        $loginUser = $userManager->login($userData['email'], $userData['pwd']);
+        if ($loginUser) {
+            echo "Connexion réussie avec le bon mot de passe.<br>";
+        } else {
+            echo "Échec de connexion avec le bon mot de passe.<br>";
+        }
+
+        // Test de connexion avec un mauvais mot de passe
+        $wrongLogin = $userManager->login($userData['email'], 'wrongpassword');
+        if (!$wrongLogin) {
+            echo "Connexion refusée avec mauvais mot de passe (comportement attendu).<br>";
+        } else {
+            echo "Connexion réussie avec mauvais mot de passe (comportement inattendu).<br>";
+        }
 
         // On récupère l'ID du nouvel utilisateur
         $userId = $db->getConnection()->insert_id;
