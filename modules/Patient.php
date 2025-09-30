@@ -9,7 +9,7 @@ class Patient {
     public $phone;
     public $address;
     public $medical_info;
-    public $user_id; // médecin responsable
+    public $doctor_id;
 
     public function __construct($data = []) {
         foreach ($data as $key => $value) {

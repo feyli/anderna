@@ -19,10 +19,10 @@ class PatientManager {
         $phone = $this->db->real_escape_string($patient->phone);
         $address = $this->db->real_escape_string($patient->address);
         $medical_info = $this->db->real_escape_string($patient->medical_info);
-        $user_id = intval($patient->user_id);
+        $doctor_id = intval($patient->doctor_id);
 
-        $sql = "INSERT INTO patients (first_name, last_name, gender, birth_date, email, phone, address, medical_info, user_id)
-                VALUES ('$fn', '$ln', '$gender', '$birth_date', '$email', '$phone', '$address', '$medical_info', $user_id)";
+        $sql = "INSERT INTO patients (first_name, last_name, gender, birth_date, email, phone, address, medical_info, doctor_id)
+                VALUES ('$fn', '$ln', '$gender', '$birth_date', '$email', '$phone', '$address', '$medical_info', $doctor_id)";
         return $this->db->query($sql);
     }
 
@@ -34,9 +34,9 @@ class PatientManager {
     }
 
     // Récupérer tous les patients d'un médecin
-    public function getPatientsByUser($user_id) {
-        $user_id = intval($user_id);
-        $sql = "SELECT * FROM patients WHERE user_id=$user_id";
+    public function getPatientsByDoctor($doctor_id) {
+        $doctor_id = intval($doctor_id);
+        $sql = "SELECT * FROM patients WHERE doctor_id=$doctor_id";
         $result = $this->db->query($sql);
         $patients = [];
         while ($row = $result->fetch_assoc()) {
