@@ -42,7 +42,7 @@
                 </div>
 
                 <div class="forgot-password">
-                    <a href="#">Mot de passe oublié ?</a>
+                    <a href="/forgot">Mot de passe oublié ?</a>
                 </div>
 
                 <div class="button-group">
