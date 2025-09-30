@@ -17,11 +17,16 @@
 }
 
 .nameHeader {
-    margin-left: 15px;
+    margin-left: 6px;
     color: white;
     font-weight: bold;
 }
 
+.logo {
+    margin-left: 15px;
+    width: 60px;
+    height: auto;
+}
 .nameHeader h2 {
     margin: 0;
     padding: 0;

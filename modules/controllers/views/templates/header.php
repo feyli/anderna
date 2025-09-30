@@ -1,4 +1,5 @@
 <header class="siteHeader">
+    <img src="/_assets/images/Logo.png" alt="Logo DashMed" class="logo">
     <h2 class="nameHeader">DashMed</h2>
 </header>
 <body>
