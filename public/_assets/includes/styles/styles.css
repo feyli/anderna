@@ -1,14 +1,30 @@
+* {
+    font-family: "Noto Sans Display", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-variation-settings: "wdth" 100;
+}
 
 /* Header */
 .siteHeader {
+    display: flex;
     background-color: #5863F8;
     height: 106px;
     width: 100%;
+    flex-direction: row;
+    align-items: center;
 }
 
 .nameHeader {
     margin-left: 15px;
     color: white;
+    font-weight: bold;
+}
+
+.nameHeader h2 {
+    margin: 0;
+    padding: 0;
 }
 
 body {
@@ -27,7 +43,6 @@ main {
 
     min-height: calc(84.5vh - 106px);
 }
-
 
 
 .container .name {
@@ -103,14 +118,14 @@ Mais également de developper mozilla et de gemini pour le clip-path*/
 }
 
 @keyframes fadeInHexagon {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-            }
-        }
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+    }
+}
 
 .hexagone:nth-child(1) {
     top: 40px;
@@ -184,10 +199,11 @@ Mais également de developper mozilla et de gemini pour le clip-path*/
 
 .hexagone:nth-child(11) {
     bottom: 150px;
-    left: 0%;
+    left: 0;
     transform: scale(1.2) rotate(3deg);
     animation: fadeInHexagon 0.5s ease-out;
 }
+
 .hexagone:nth-child(12) {
     bottom: 40px;
     left: 20px;
@@ -204,7 +220,7 @@ Mais également de developper mozilla et de gemini pour le clip-path*/
 
 .hexagone:nth-child(14) {
     bottom: 120px;
-    right: 0%;
+    right: 0;
     transform: scale(1.9) rotate(-3deg);
     animation: fadeInHexagon 0.5s ease-out;
 }
@@ -221,4 +237,8 @@ Mais également de developper mozilla et de gemini pour le clip-path*/
     right: 10%;
     transform: scale(1.0) rotate(5deg);
     animation: fadeInHexagon 0.5s ease-out;
+}
+
+.btn {
+    text-decoration: none;
 }
