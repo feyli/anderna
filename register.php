@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="_assets/includes/styles/styles.css">
+    <link rel="stylesheet" href="_assets/includes/styles/style-login.css">
+    <link rel="stylesheet" href="_assets/includes/styles/style-register.css">
+    <title>Connectez-vous</title>
+</head>
+<body>
+    <?php include 'modules/blog/controllers/views/templates/header.php'; ?>
+    <main>
+    <div class="signup-container">
+        <h1 class="signup-title">S'inscrire</h1>
+        
+        <form id="signupForm">
+            <div class="form-group">
+                <label for="nom" class="form-label">Nom <span class="required">*</span></label>
+                <input 
+                    type="text" 
+                    id="nom" 
+                    name="nom" 
+                    class="form-input"
+                    placeholder="Tapez votre nom ici..."
+                    required
+                >
+
+            </div>
+            
+            <div class="form-group">
+                <label for="prenom" class="form-label">Prénom <span class="required">*</span></label>
+                <input 
+                    type="text" 
+                    id="prenom" 
+                    name="prenom" 
+                    class="form-input"
+                    placeholder="Tapez votre prénom ici..."
+                    required
+                >
+
+            </div>
+            
+            <div class="form-group">
+                <label class="form-label">Genre :</label>
+                <div class="gender-group">
+                    <div class="gender-option">
+                        <input type="radio" id="femme" name="genre" value="F">
+                        <label for="femme">F</label>
+                    </div>
+                    <div class="gender-option">
+                        <input type="radio" id="homme" name="genre" value="M">
+                        <label for="homme">M</label>
+                    </div>
+                    <div class="gender-option">
+                        <input type="radio" id="autre" name="genre" value="Autre">
+                        <label for="autre">Autre</label>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="email" class="form-label">E-mail <span class="required">*</span></label>
+                <input 
+                    type="email" 
+                    id="email" 
+                    name="email" 
+                    class="form-input"
+                    placeholder="Tapez votre e-mail ici..."
+                    required
+                >
+                
+            </div>
+            
+            <div class="form-group">
+                <label for="motdepasse" class="form-label">Mot de passe <span class="required">*</span></label>
+                <input 
+                    type="password" 
+                    id="motdepasse" 
+                    name="motdepasse" 
+                    class="form-input"
+                    placeholder="Tapez votre mot de passe ici..."
+                    required
+                    minlength="6"
+                >
+            </div>
+            
+            <div class="button-group">
+                <a type="submit" class="btn btn-primary" href="">S'inscrire</a>
+                <a type="button" class="btn btn-secondary" href="index.php">Retour</a>
+            </div>
+        </form>
+    </div>
+    </main>
+</body>
+</html>

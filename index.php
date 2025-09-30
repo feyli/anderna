@@ -10,60 +10,11 @@
     <div class="container">
         <h1 class="name">DashMed</h1>
         <div class="buttons">
-            <a class="btn1" href="">Se connecter</a>
-            <a class="btn2" href="">S'inscrire</a>
+            <a class="btn1" href="login.php">Se connecter</a>
+            <a class="btn2" href="register.php">S'inscrire</a>
         </div>
     </div>
 </main>
-    <div class="hexagone-container">
-        <div class="hexagone">
-            <div class="hexagone2"></div>
-        </div>
-        <div class="hexagone">
-            <div class="hexagone2"></div>
-        </div>
-        <div class="hexagone">
-            <div class="hexagone2"></div>
-        </div>
-        <div class="hexagone">
-            <div class="hexagone2"></div>
-        </div>
-        <div class="hexagone">
-            <div class="hexagone2"></div>
-        </div>
-        <div class="hexagone">
-            <div class="hexagone2"></div>
-        </div>
-        <div class="hexagone">
-            <div class="hexagone2"></div>
-        </div>
-        <div class="hexagone">
-            <div class="hexagone2"></div>
-        </div>
-        <div class="hexagone">
-            <div class="hexagone2"></div>
-        </div>
-        <div class="hexagone">
-            <div class="hexagone2"></div>
-        </div>
-        <div class="hexagone">
-            <div class="hexagone2"></div>
-        </div>
-        <div class="hexagone">
-            <div class="hexagone2"></div>
-        </div>
-        <div class="hexagone">
-            <div class="hexagone2"></div>
-        </div>
-        <div class="hexagone">
-            <div class="hexagone2"></div>
-        </div>
-        <div class="hexagone">
-            <div class="hexagone2"></div>
-        </div>
-        <div class="hexagone">
-            <div class="hexagone2"></div>
-        </div>
-    </div>
+    
 </body>
 </html>
