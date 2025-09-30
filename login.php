@@ -1,3 +1,5 @@
+<?php require_once 'modules/DataBase.php' ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,7 +15,7 @@
     <div class="login-container">
         <h1 class="login-title">Connexion</h1>
 
-        <form id="loginForm">
+        <form method="POST" id="loginForm">
             <div class="form-group">
                 <label for="email" class="form-label">E-mail :</label>
                 <input 
@@ -43,12 +45,26 @@
             </div>
             
             <div class="button-group">
-                <button type="submit" class="btn btn-primary">Connexion</button>
-                <button type="button" class="btn btn-secondary">Retour</button>
+                <a type="submit" class="btn btn-primary">Connexion</a>
+                <a type="button" class="btn btn-secondary" href="index.php">Retour</a>
             </div>
         </form>
 
     </div>
     </main>
+    <?php
+        if ($_POST['submit']) {
+            $email = $_POST['email'];
+            $password = $_POST['password'];
+            
+            $result = login($email, $password);
+            
+            if ($result) {
+                echo "Login successful!";
+            } else {
+                echo "Login failed!";
+            }
+        }
+    ?>
 </body>
 </html>

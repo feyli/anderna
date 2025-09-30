@@ -18,9 +18,9 @@ try {
     ];
 
     $user = new User($userData);
-
     $userManager = new UserManager($db);
 
+    // Supression de l'utilisateur test s'il existe déjà
     $userManager->deleteUserByEmail($userData['email']);
     $result = $userManager->addUser($user);
 

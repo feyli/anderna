@@ -8,8 +8,8 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
-        .login-container {
-            
+        .signup-container {
+            margin-top: 2rem;
             background: white;
             padding: 2rem;
             border-radius: 10px;
@@ -23,14 +23,14 @@
             from {
                 opacity: 0;
                 transform: translateY(20px);
-            } 
+            }
             to {
                 opacity: 1;
                 transform: translateY(0);
             }
         }
 
-        .login-title {
+        .signup-title {
             text-align: center;
             color: #333;
             margin-bottom: 1.5rem;
@@ -69,22 +69,40 @@
             color: #adb5bd;
         }
 
-        .forgot-password {
-            text-align: right;
+        .gender-group {
+            display: flex;
+            gap: 1.5rem;
             margin-top: 0.5rem;
-            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
         }
 
-        .forgot-password a {
-            color: #272FA0;
-            text-decoration: none;
-            font-size: 0.9rem;
-            transition: color 0.3s ease;
+        .gender-option {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 6px;
+            transition: background-color 0.3s ease;
         }
 
-        .forgot-password a:hover {
-            color: #764ba2;
+        .gender-option:hover {
+            background-color: #f3f4f6;
         }
+
+        .gender-option input[type="radio"] {
+            width: 1.2rem;
+            height: 1.2rem;
+            accent-color: #4f46e5;
+            cursor: pointer;
+        }
+
+        .gender-option label {
+            color: #374151;
+            cursor: pointer;
+            font-weight: 500;
+        }
+
 
         .button-group {
             display: flex;
@@ -130,7 +148,7 @@
         }
 
         @media (max-width: 480px) {
-            .login-container {
+            .register-container {
                 margin: 1rem;
                 padding: 1.5rem;
             }
