@@ -39,7 +39,7 @@ class UserManager {
                 return $userData; // Connexion OK
             }
         }
-        return false; // Connexion KO
+        return false;
     }
 
     public function deleteUserByEmail($email) {
