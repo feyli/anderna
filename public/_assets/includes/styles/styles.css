@@ -17,11 +17,16 @@
 }
 
 .nameHeader {
-    margin-left: 15px;
+    margin-left: 6px;
     color: white;
     font-weight: bold;
 }
 
+.logo {
+    margin-left: 15px;
+    width: 60px;
+    height: auto;
+}
 .nameHeader h2 {
     margin: 0;
     padding: 0;
@@ -84,9 +89,6 @@ main {
 .btn2:hover {
     background-color: #5863F8;
 }
-
-/* Aide d'une video youtube de la chaine : Dgeo Dev (https://www.youtube.com/watch?v=e6TlYe5rk5c)
-Mais également de developper mozilla et de gemini pour le clip-path*/
 
 .hexagone {
     margin: 20px;

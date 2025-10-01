@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="/_assets/includes/styles/styles.css">
     <link rel="stylesheet" href="/_assets/includes/styles/styles-login.css">
     <link rel="stylesheet" href="/_assets/includes/styles/styles-register.css">
+    <?php include __DIR__ . '/../../modules/controllers/views/templates/head.php'; ?>
     <title>S'inscrire</title>
 </head>
 <body>
