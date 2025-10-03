@@ -26,7 +26,6 @@
                         placeholder="Tapez votre nom ici..."
                         required
                     >
-
                 </div>
 
                 <div class="form-group">
@@ -39,7 +38,6 @@
                         placeholder="Tapez votre prénom ici..."
                         required
                     >
-
                 </div>
 
                 <div class="form-group">
@@ -70,7 +68,6 @@
                         placeholder="Tapez votre e-mail ici..."
                         required
                     >
-
                 </div>
 
                 <div class="form-group">
