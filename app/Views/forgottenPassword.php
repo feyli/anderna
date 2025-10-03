@@ -18,7 +18,7 @@
 
             <form method="POST" id="forgotForm">
                 <div class="form-group">
-                    <label for="email" class="form-label">E-mail :*</label>
+                    <label for="email" class="form-label">E-mail :</label>
                     <input
                             type="email"
                             id="email"
@@ -29,7 +29,8 @@
                     >
                 </div>
                 <div class="button-forgot">
-                    <a type="button" class="btn btn-primary" href="#">Envoyer</a>
+<!--                    <button type="submit" class="btn btn-primary">Envoyer</button>-->
+                    <a type="button" class="btn btn-primary" href="/reset">Envoyer</a>
                 </div>
             </form>
         </div>
