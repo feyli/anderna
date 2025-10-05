@@ -14,6 +14,18 @@
     width: 100%;
     flex-direction: row;
     align-items: center;
+    position: fixed; top: 0; left: 0; z-index: 100;
+}
+
+.siteHeader a:visited {
+    color: inherit;
+}
+
+.siteHeader a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    height: 100%;
 }
 
 .nameHeader {
