@@ -10,7 +10,7 @@ $router->dispatch($_SERVER['REQUEST_URI']);
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Display:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-<-- OpenGraph and Twitter Card metadata -->
+<!-- Meta Tags for SEO and Social Media -->
 <meta property="og:title" content="DashMed - Votre tableau de bord médical par excellence">
 <meta property="og:description" content="Gérez vos informations médicales en toute simplicité avec
     DashMed.">
