@@ -6,5 +6,7 @@ return [
     '/signup' => ['controller' => 'SignupController', 'action' => 'signup'],
     '/logout' => ['controller' => 'LogoutController', 'action' => 'logout'],
     '/forgot' => ['controller' => 'forgottenPasswordController', 'action' => 'forgot'],
-    '/reset' => ['controller' => 'resetPasswordController', 'action' => 'reset']
+    '/reset' => ['controller' => 'resetPasswordController', 'action' => 'reset'],
+    '/logout' => ['controller' => 'LogoutController', 'action' => 'logout'],
+    '/legal-notice' => ['controller' => 'LegalNoticeController', 'action' => 'legalnotice']
 ];

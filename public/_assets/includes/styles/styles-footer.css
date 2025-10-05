@@ -1,0 +1,49 @@
+/* Harmonized footer style for DashMed */
+
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* 100% de la hauteur visible */
+}
+
+main {
+    flex: 1; /* Prend tout l'espace disponible */
+}
+
+footer {
+    width: 100%;
+    background: #f8f9fa;
+    border-top: 1px solid #e1e1e1;
+    padding: 10px 0;
+    text-align: center;
+    font-size: 0.95rem;
+    color: #232323;
+    font-family: 'Segoe UI', 'Arial', sans-serif;
+    margin-top: auto; /* Pousse le footer vers le bas */
+    z-index: 10;
+}
+
+footer a {
+    color: #4958f6;
+    text-decoration: none;
+    margin-right: 8px;
+    transition: color 0.2s;
+}
+
+footer a:hover,
+footer a:focus {
+    color: #2330a6;
+    text-decoration: underline;
+}
+
+@media (max-width: 600px) {
+    footer {
+        font-size: 0.85rem;
+        padding: 8px 0;
+    }
+}
