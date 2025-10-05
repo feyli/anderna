@@ -15,7 +15,7 @@
         <div class="signup-container">
             <h1 class="signup-title">S'inscrire</h1>
 
-            <form id="signupForm">
+            <form method="POST" id="signupForm">
                 <div class="form-group">
                     <label for="nom" class="form-label">Nom <span class="required">*</span></label>
                     <input
@@ -87,7 +87,7 @@
                 </div>
 
                 <div class="button-group">
-                    <a type="submit" class="btn btn-primary" href="">S'inscrire</a>
+                    <button type="submit" name="submit" class="btn btn-primary">S'inscrire</button>
                     <a type="button" class="btn btn-secondary" href="/">Retour</a>
                 </div>
             </form>
