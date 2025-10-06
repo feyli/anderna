@@ -14,6 +14,12 @@ class LoginController
             $database = new DataBase();
             $userManager = new UserManager($database);
             $result = $userManager->login($email, $password);
+
+            if ($result) {
+                //session_start();
+                //$_SESSION
+                //header('dash.php');
+            }
         }
 
 

@@ -37,6 +37,7 @@ class UserManager {
             // Vérification du mot de passe
             if (password_verify($pwd, $userData['pwd'])) {
                 return $userData; // Connexion OK
+                echo $userData;
             }
         }
         return false;
