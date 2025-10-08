@@ -16,7 +16,11 @@ class LoginController
             $result = $userManager->login($email, $password);
 
             if ($result) {
-                //session_start();
+                session_start();
+                $_SESSION['user_id'] = $result['id'];
+                $_SESSION['user_email'] = $result['email'];
+                $_SESSION['user_name'] = $result['first_name'] . ' ' . $result['last_name'];
+                    
                 //$_SESSION
                 //header('dash.php');
             }

@@ -2,7 +2,7 @@
 
 class DashController
 {
-    public function index()
+    public function dash()
     {
         require __DIR__ . '/../Views/dash.php';
     }
