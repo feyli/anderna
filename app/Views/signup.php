@@ -18,7 +18,7 @@
 
             <form method="POST" id="signupForm">
                 <div class="form-group">
-                    <label for="nom" class="form-label">Nom <span class="required">*</span></label>
+                    <label for="nom" class="form-label">Nom<span class="required">*</span></label>
                     <input
                         type="text"
                         id="nom"
@@ -27,11 +27,10 @@
                         placeholder="Tapez votre nom ici..."
                         required
                     >
-
                 </div>
 
                 <div class="form-group">
-                    <label for="prenom" class="form-label">Prénom <span class="required">*</span></label>
+                    <label for="prenom" class="form-label">Prénom<span class="required">*</span></label>
                     <input
                         type="text"
                         id="prenom"
@@ -40,7 +39,6 @@
                         placeholder="Tapez votre prénom ici..."
                         required
                     >
-
                 </div>
 
                 <div class="form-group">
@@ -62,7 +60,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="email" class="form-label">E-mail <span class="required">*</span></label>
+                    <label for="email" class="form-label">E-mail<span class="required">*</span></label>
                     <input
                         type="email"
                         id="email"
@@ -71,11 +69,10 @@
                         placeholder="Tapez votre e-mail ici..."
                         required
                     >
-
                 </div>
 
                 <div class="form-group">
-                    <label for="motdepasse" class="form-label">Mot de passe <span class="required">*</span></label>
+                    <label for="motdepasse" class="form-label">Mot de passe<span class="required">*</span></label>
                     <input
                         type="password"
                         id="motdepasse"
