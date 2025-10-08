@@ -42,7 +42,6 @@
             </div>
 
             <div class="button-forgot">
-<!--                <a type="submit" class="btn btn-primary" href="/login">Confirmer</a>-->
                 <button type="submit" class="btn btn-primary">Confirmer</button>
             </div>
         </form>

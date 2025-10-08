@@ -30,7 +30,6 @@
                 </div>
                 <div class="button-forgot">
                     <button type="submit" class="btn btn-primary">Envoyer</button>
-<!--                    <a type="button" class="btn btn-primary" href="/reset">Envoyer</a>-->
                 </div>
             </form>
         </div>

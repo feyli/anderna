@@ -18,7 +18,7 @@ class forgottenPasswordController
 
             if ($result->num_rows === 0)
             {
-                echo "<script> alert('Cet email n\'existe pas. Veuillez en taper une correcte.'); 
+                echo "<script> alert('Cet adresse mail n\'existe pas. Veuillez en taper une correcte.'); 
                       window.location.href='/forgot'; </script>";
                 exit;
             }
@@ -44,12 +44,11 @@ class forgottenPasswordController
             $update->bind_param("sss", $token, $expires, $email);
             $update->execute();
 
-//            $resetLink = "https://dashmed.feyli.dev/reset?token=" . $token;
-            $resetLink = "http://localhost:8000/reset?token=" . $token;
+            $resetLink = "https://dashmed.feyli.dev/reset?token=" . $token;
 
-            $headers = "From: no-reply@dashmed.feyli.dev.com\r\n";
-//            $headers .= "To: '$email'\r\n";
-//            $headers .= "X-Mailer: PHP/" . phpversion();
+            $headers = "From: noreply@dashmed.feyli.dev\r\n";
+            $headers .= "To: '$email'\r\n";
+            $headers .= "X-Mailer: PHP/" . phpversion();
             $subject = "Réinitialisation de votre mot de passe";
             $message = "Bonjour,\n\nCliquez sur ce lien pour réinitialiser votre mot de passe :\n$resetLink\n\nCe lien expirera dans 10 minutes.";
 
@@ -59,7 +58,7 @@ class forgottenPasswordController
             }
             else
             {
-                echo "<script>alert('Un problème d\'envoie de l\'email de réinitialisation est survenu.');</script>";
+                echo "<script>alert('Un problème d\'envoie de l\'email de réinitialisation est survenu. Veuillez réessayer.');</script>";
             }
         }
         require __DIR__ . '/../Views/forgottenPassword.php';
