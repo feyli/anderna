@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/_assets/includes/styles/styles.css">
     <link rel="stylesheet" href="/_assets/includes/styles/styles-forgot.css">
+    <link rel="stylesheet" href="/_assets/includes/styles/styles-footer.css">
     <?php include __DIR__ . '/../../modules/controllers/views/templates/head.php'; ?>
     <title>Mots de passe oubliés</title>
 </head>
@@ -34,5 +35,6 @@
             </form>
         </div>
     </main>
+    <?php include __DIR__ . '/../../modules/controllers/views/templates/footer.php';?>
 </body>
 </html>
