@@ -1,8 +1,11 @@
 <?php
 
+use JetBrains\PhpStorm\NoReturn;
+
 class LogoutController
 {
-    public function logout()
+    #[NoReturn]
+    public function logout(): void
     {
         // Destroy the session (creating one if it exists)
         if (session_status() === PHP_SESSION_NONE) session_start();
