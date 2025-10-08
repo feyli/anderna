@@ -9,13 +9,13 @@
     <link rel="stylesheet" href="/_assets/includes/styles/styles-forgot.css">
     <link rel="stylesheet" href="/_assets/includes/styles/styles-footer.css">
     <?php include __DIR__ . '/../../modules/controllers/views/templates/head.php'; ?>
-    <title>Mots de passe oubliés</title>
+    <title>Mot de passe oublié</title>
 </head>
 <body>
     <?php include __DIR__ . '/../../modules/controllers/views/templates/header.php'; ?>
     <main>
         <div class="forgot-container">
-            <h1 class="forgot-title">Mots de passe oubliés</h1>
+            <h1 class="forgot-title">Mot de passe oublié</h1>
 
             <form method="POST" id="forgotForm">
                 <div class="form-group">

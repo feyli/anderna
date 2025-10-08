@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="/_assets/includes/styles/styles-reset.css">
     <link rel="stylesheet" href="/_assets/includes/styles/styles-footer.css">
     <?php include __DIR__ . '/../../modules/controllers/views/templates/head.php'; ?>
-    <title>Réinitialiser Mots de Passe</title>
+    <title>Réinitialiser le mot de passe</title>
 </head>
 <body>
     <?php include __DIR__ . '/../../modules/controllers/views/templates/header.php'; ?>
