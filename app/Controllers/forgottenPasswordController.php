@@ -18,7 +18,7 @@ class forgottenPasswordController
 
             if ($result->num_rows === 0)
             {
-                echo "<script> alert('Cet email n\'existe pas dans notre base de données.'); 
+                echo "<script> alert('Cet email n\'existe pas. Veuillez en taper une correcte.'); 
                       window.location.href='/forgot'; </script>";
                 exit;
             }
@@ -37,23 +37,29 @@ class forgottenPasswordController
                 $token = bin2hex(md5(uniqid(mt_rand(), true)));
             }
 
+            date_default_timezone_set('Europe/Paris');
             $expires = date("Y-m-d H:i:s", strtotime('+10 minutes'));
 
             $update = $conn->prepare("UPDATE users SET reset_token = ?, reset_expires = ? WHERE email = ?");
             $update->bind_param("sss", $token, $expires, $email);
             $update->execute();
 
-            $resetLink = "https://dashmed.feyli.dev/reset?token=" . $token;
+//            $resetLink = "https://dashmed.feyli.dev/reset?token=" . $token;
+            $resetLink = "http://localhost:8000/reset?token=" . $token;
 
             $headers = "From: no-reply@dashmed.feyli.dev.com\r\n";
-            $headers .= "Reply-To: no-reply@dashmed.feyli.dev.com\r\n";
-            $headers .= "X-Mailer: PHP/" . phpversion();
+//            $headers .= "To: '$email'\r\n";
+//            $headers .= "X-Mailer: PHP/" . phpversion();
             $subject = "Réinitialisation de votre mot de passe";
             $message = "Bonjour,\n\nCliquez sur ce lien pour réinitialiser votre mot de passe :\n$resetLink\n\nCe lien expirera dans 10 minutes.";
 
             if (mail($email, $subject, $message, $headers))
             {
                 echo "<script>alert('Un email de réinitialisation vous a été envoyé.');</script>";
+            }
+            else
+            {
+                echo "<script>alert('Un problème d\'envoie de l\'email de réinitialisation est survenu.');</script>";
             }
         }
         require __DIR__ . '/../Views/forgottenPassword.php';

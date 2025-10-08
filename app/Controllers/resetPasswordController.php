@@ -47,6 +47,7 @@ class resetPasswordController
 
                 $update = $conn->prepare("UPDATE users SET pwd = ?, reset_token = NULL, reset_expires = NULL WHERE id = ?");
                 $update->bind_param("si", $hashedPwd, $user['id']);
+//                $update->bind_param("si", $hashedPwd, $id);
                 $update->execute();
 
                 echo "<script>alert('Votre mot de passe a été réinitialisé avec succès.'); window.location.href='/login';</script>";
