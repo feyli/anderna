@@ -54,11 +54,11 @@ class forgottenPasswordController
 
             if (mail($email, $subject, $message, $headers))
             {
-                echo "<script>alert('Un email de réinitialisation vous a été envoyé.');</script>";
+                echo "<script>alert('Un mail de réinitialisation vous a été envoyé.');</script>";
             }
             else
             {
-                echo "<script>alert('Un problème d\'envoie de l\'email de réinitialisation est survenu. Veuillez réessayer.');</script>";
+                echo "<script>alert('Un problème d\'envoi de l\'email de réinitialisation est survenu. Veuillez réessayer.');</script>";
             }
         }
         require __DIR__ . '/../Views/forgottenPassword.php';
