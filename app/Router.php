@@ -2,18 +2,18 @@
 
 class Router
 {
-    private $routes;
+    private array $routes;
 
-    public function __construct($routes)
+    public function __construct(array $routes)
     {
         $this->routes = $routes;
     }
 
-    public function dispatch($uri)
+    public function dispatch($uri): void
     {
         $path = parse_url($uri, PHP_URL_PATH);
 
-        if ($path !== '/' && substr($path, -1) === '/') {
+        if ($path !== '/' && str_ends_with($path, '/')) {
             $path = rtrim($path, '/');
         }
 
@@ -29,30 +29,27 @@ class Router
                     $controller = new $controllerName();
                     if (method_exists($controller, $action)) {
                         $controller->$action();
-                        return;
                     } else {
                         $this->error500("Method $action not found in $controllerName");
-                        return;
                     }
                 } else {
                     $this->error500("Class $controllerName not found");
-                    return;
                 }
             } else {
                 $this->error500("Controller file $controllerName.php not found");
-                return;
             }
+            return;
         }
         $this->error404();
     }
 
-    private function error404()
+    private function error404(): void
     {
         http_response_code(404);
         echo "Not Found";
     }
 
-    private function error500($message = "Internal Server Error")
+    private function error500($message = "Internal Server Error"): void
     {
         http_response_code(500);
         echo "$message";

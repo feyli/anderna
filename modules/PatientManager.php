@@ -3,14 +3,15 @@ require_once 'Database.php';
 require_once 'Patient.php';
 
 class PatientManager {
-    private $db;
+    private mysqli $db;
 
     public function __construct(Database $database) {
         $this->db = $database->getConnection();
     }
 
     // Ajouter un patient
-    public function addPatient($patient) {
+    public function addPatient($patient): mysqli_result|bool
+    {
         $fn = $this->db->real_escape_string($patient->first_name);
         $ln = $this->db->real_escape_string($patient->last_name);
         $gender = $this->db->real_escape_string($patient->gender);
@@ -27,14 +28,16 @@ class PatientManager {
     }
 
     // Supprimer un patient
-    public function deletePatient($id) {
+    public function deletePatient($id): mysqli_result|bool
+    {
         $id = intval($id);
         $sql = "DELETE FROM patients WHERE id=$id";
         return $this->db->query($sql);
     }
 
     // Récupérer tous les patients d'un médecin
-    public function getPatientsByDoctor($doctor_id) {
+    public function getPatientsByDoctor($doctor_id): array
+    {
         $doctor_id = intval($doctor_id);
         $sql = "SELECT * FROM patients WHERE doctor_id=$doctor_id";
         $result = $this->db->query($sql);
@@ -46,7 +49,8 @@ class PatientManager {
     }
 
     // Récupérer un patient par son id
-    public function getPatientById($id) {
+    public function getPatientById($id): ?Patient
+    {
         $id = intval($id);
         $sql = "SELECT * FROM patients WHERE id=$id";
         $result = $this->db->query($sql);
@@ -56,4 +60,3 @@ class PatientManager {
         return null;
     }
 }
-?>

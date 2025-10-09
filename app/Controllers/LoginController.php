@@ -5,7 +5,7 @@ require_once dirname(__DIR__, 2) . '/modules/UserManager.php';
 
 class LoginController
 {
-    public function login()
+    public function login(): void
     {
         // Check if user is logged in
         session_start();

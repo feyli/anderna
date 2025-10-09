@@ -6,6 +6,13 @@
     font-variation-settings: "wdth" 100;
 }
 
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100dvh;
+    position: relative;
+}
+
 /* Header */
 .siteHeader {
     display: flex;
@@ -14,7 +21,9 @@
     width: 100%;
     flex-direction: row;
     align-items: center;
-    position: fixed; top: 0; left: 0; z-index: 100;
+    top: 0;
+    left: 0;
+    z-index: 100;
 }
 
 .siteHeader a:visited {
@@ -23,6 +32,8 @@
 
 .siteHeader a {
     display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
     align-items: center;
     text-decoration: none;
     height: 100%;
@@ -39,6 +50,7 @@
     width: 60px;
     height: auto;
 }
+
 .nameHeader h2 {
     margin: 0;
     padding: 0;
@@ -51,18 +63,17 @@ body {
 }
 
 main {
-    margin-top: 0;
+    flex-grow: 1;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
-
-    min-height: calc(84.5vh - 106px);
 }
 
 
 .container .name {
+    margin-top: 0;
     font-size: 3em;
     margin-bottom: 30px;
     color: #000000;

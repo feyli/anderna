@@ -1,15 +1,15 @@
 <?php
 class Patient {
-    public $id;
-    public $first_name;
-    public $last_name;
-    public $gender;
-    public $birth_date;
-    public $email;
-    public $phone;
-    public $address;
-    public $medical_info;
-    public $doctor_id;
+    public int $id;
+    public string $first_name;
+    public string $last_name;
+    public string $gender;
+    public string $birth_date;
+    public string $email;
+    public string $phone;
+    public string $address;
+    public string $medical_info;
+    public int $doctor_id;
 
     public function __construct($data = []) {
         foreach ($data as $key => $value) {
@@ -17,4 +17,3 @@ class Patient {
         }
     }
 }
-?>

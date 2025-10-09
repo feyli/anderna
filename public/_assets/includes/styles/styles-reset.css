@@ -4,13 +4,14 @@
     box-sizing: border-box;
 }
 
-.signup-container {
+.reset-container {
     background: white;
     padding: 2rem;
     border-radius: 10px;
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
     width: 100%;
     max-width: 400px;
+    margin: 2rem auto;
     animation: fadeIn 0.5s ease-out;
 }
 
@@ -25,7 +26,7 @@
     }
 }
 
-.signup-title {
+.reset-title {
     text-align: center;
     color: #333;
     margin-bottom: 1.5rem;
@@ -38,7 +39,7 @@
 }
 
 .form-label {
-    display: flex;
+    display: block;
     margin-bottom: 0.5rem;
     color: #555;
     font-weight: 500;
@@ -64,45 +65,10 @@
     color: #adb5bd;
 }
 
-.gender-group {
+.button-forgot {
     display: flex;
-    gap: 1.5rem;
-    margin-top: 0.5rem;
-    flex-wrap: wrap;
-}
-
-.gender-option {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    cursor: pointer;
-    padding: 0.5rem;
-    border-radius: 6px;
-    transition: background-color 0.3s ease;
-}
-
-.gender-option:hover {
-    background-color: #f3f4f6;
-}
-
-.gender-option input[type="radio"] {
-    width: 1.2rem;
-    height: 1.2rem;
-    accent-color: #4f46e5;
-    cursor: pointer;
-}
-
-.gender-option label {
-    color: #374151;
-    cursor: pointer;
-    font-weight: 500;
-}
-
-
-.button-group {
-    display: flex;
-    gap: 1rem;
     justify-content: center;
+    margin-top: 1.5rem;
 }
 
 .btn {
@@ -113,7 +79,8 @@
     font-weight: 500;
     cursor: pointer;
     transition: all 0.3s ease;
-    min-width: 100px;
+    min-width: 120px;
+    text-align: center;
 }
 
 .btn-primary {
@@ -127,28 +94,41 @@
     box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
 }
 
-.btn-secondary {
-    background: #6c757d;
-    color: white;
-}
-
-.btn-secondary:hover {
-    background: #5a6268;
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(108, 117, 125, 0.3);
-}
-
 .btn:active {
     transform: translateY(0);
 }
 
+.alert {
+    padding: 0.75rem 1rem;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+    text-align: center;
+}
+
+.alert-error {
+    background: #ffe5e5;
+    color: #b00020;
+    border: 1px solid #ffb3b3;
+}
+
+.alert-success {
+    background: #e6ffed;
+    color: #007a33;
+    border: 1px solid #a3f7c4;
+}
+
 @media (max-width: 480px) {
-    .register-container {
+    .reset-container {
         margin: 1rem;
         padding: 1.5rem;
     }
 
-    .button-group {
+    .button-forgot {
         flex-direction: column;
+    }
+
+    .btn {
+        width: 100%;
     }
 }

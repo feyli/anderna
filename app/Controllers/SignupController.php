@@ -5,7 +5,7 @@ require_once dirname(__DIR__, 2) . '/modules/UserManager.php';
 
 class SignupController
 {
-    public function signup()
+    public function signup(): void
     {
         if (isset($_POST['submit'])) {
             // Create user object

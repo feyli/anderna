@@ -4,7 +4,7 @@
     box-sizing: border-box;
 }
 
-.signup-container {
+.forgot-container {
     background: white;
     padding: 2rem;
     border-radius: 10px;
@@ -25,7 +25,7 @@
     }
 }
 
-.signup-title {
+.forgot-title {
     text-align: center;
     color: #333;
     margin-bottom: 1.5rem;
@@ -38,7 +38,7 @@
 }
 
 .form-label {
-    display: flex;
+    display: block;
     margin-bottom: 0.5rem;
     color: #555;
     font-weight: 500;
@@ -64,42 +64,7 @@
     color: #adb5bd;
 }
 
-.gender-group {
-    display: flex;
-    gap: 1.5rem;
-    margin-top: 0.5rem;
-    flex-wrap: wrap;
-}
-
-.gender-option {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    cursor: pointer;
-    padding: 0.5rem;
-    border-radius: 6px;
-    transition: background-color 0.3s ease;
-}
-
-.gender-option:hover {
-    background-color: #f3f4f6;
-}
-
-.gender-option input[type="radio"] {
-    width: 1.2rem;
-    height: 1.2rem;
-    accent-color: #4f46e5;
-    cursor: pointer;
-}
-
-.gender-option label {
-    color: #374151;
-    cursor: pointer;
-    font-weight: 500;
-}
-
-
-.button-group {
+.button-forgot {
     display: flex;
     gap: 1rem;
     justify-content: center;
@@ -127,23 +92,12 @@
     box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
 }
 
-.btn-secondary {
-    background: #6c757d;
-    color: white;
-}
-
-.btn-secondary:hover {
-    background: #5a6268;
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(108, 117, 125, 0.3);
-}
-
 .btn:active {
     transform: translateY(0);
 }
 
 @media (max-width: 480px) {
-    .register-container {
+    .login-container {
         margin: 1rem;
         padding: 1.5rem;
     }

@@ -4,56 +4,54 @@
         <h2 class="nameHeader" style="margin:0; color:white; font-weight:bold;">DashMed</h2>
     </a>
 </header>
-<body>
-    <div class="hexagone-container">
-        <div class="hexagone">
-            <div class="hexagone2"></div>
-        </div>
-        <div class="hexagone">
-            <div class="hexagone2"></div>
-        </div>
-        <div class="hexagone">
-            <div class="hexagone2"></div>
-        </div>
-        <div class="hexagone">
-            <div class="hexagone2"></div>
-        </div>
-        <div class="hexagone">
-            <div class="hexagone2"></div>
-        </div>
-        <div class="hexagone">
-            <div class="hexagone2"></div>
-        </div>
-        <div class="hexagone">
-            <div class="hexagone2"></div>
-        </div>
-        <div class="hexagone">
-            <div class="hexagone2"></div>
-        </div>
-        <div class="hexagone">
-            <div class="hexagone2"></div>
-        </div>
-        <div class="hexagone">
-            <div class="hexagone2"></div>
-        </div>
-        <div class="hexagone">
-            <div class="hexagone2"></div>
-        </div>
-        <div class="hexagone">
-            <div class="hexagone2"></div>
-        </div>
-        <div class="hexagone">
-            <div class="hexagone2"></div>
-        </div>
-        <div class="hexagone">
-            <div class="hexagone2"></div>
-        </div>
-        <div class="hexagone">
-            <div class="hexagone2"></div>
-        </div>
-        <div class="hexagone">
-            <div class="hexagone2"></div>
-        </div>
+<div class="hexagone-container">
+    <div class="hexagone">
+        <div class="hexagone2"></div>
     </div>
-</body>
+    <div class="hexagone">
+        <div class="hexagone2"></div>
+    </div>
+    <div class="hexagone">
+        <div class="hexagone2"></div>
+    </div>
+    <div class="hexagone">
+        <div class="hexagone2"></div>
+    </div>
+    <div class="hexagone">
+        <div class="hexagone2"></div>
+    </div>
+    <div class="hexagone">
+        <div class="hexagone2"></div>
+    </div>
+    <div class="hexagone">
+        <div class="hexagone2"></div>
+    </div>
+    <div class="hexagone">
+        <div class="hexagone2"></div>
+    </div>
+    <div class="hexagone">
+        <div class="hexagone2"></div>
+    </div>
+    <div class="hexagone">
+        <div class="hexagone2"></div>
+    </div>
+    <div class="hexagone">
+        <div class="hexagone2"></div>
+    </div>
+    <div class="hexagone">
+        <div class="hexagone2"></div>
+    </div>
+    <div class="hexagone">
+        <div class="hexagone2"></div>
+    </div>
+    <div class="hexagone">
+        <div class="hexagone2"></div>
+    </div>
+    <div class="hexagone">
+        <div class="hexagone2"></div>
+    </div>
+    <div class="hexagone">
+        <div class="hexagone2"></div>
+    </div>
+</div>
 
