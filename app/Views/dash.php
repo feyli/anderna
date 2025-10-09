@@ -11,14 +11,23 @@
     <?php include __DIR__ . '/../../modules/controllers/views/templates/header.php'; ?>
     <main>
         <div class="dashboard-container">
-        <h2>Bonjour <?= htmlspecialchars($user_name) ?></h2><br>
-        <div class="dash-head">
-            <h1>Gestion des Patients</h1>
-            <button class="btn-add" onclick="openModal()">Ajouter un Patient</button>
-        </div>
+            <div class="header-user-section">
+                <h2>Bonjour <?= htmlspecialchars($user_name) ?></h2>
+                <a href="/logout" class="btn-logout">
+                    Déconnexion
+                </a>
+            </div>
+            <br>
+            <div class="dash-head">
+                <h1>Gestion des Patients</h1>
+                <button class="btn-add" onclick="openModal()">
+                    <span class="btn-add-text">Ajouter un Patient</span>
+                    <span class="btn-add-icon">+</span>
+                </button>
+            </div>
 
-        <div id="patientsContainer" class="patients-grid"></div>
-    </div>
+            <div id="patientsContainer" class="patients-grid"></div>
+        </div>
 
     <!-- Modal d'ajout de patient -->
     <div id="modalOverlay" class="modal-overlay" onclick="closeModal()"></div>
