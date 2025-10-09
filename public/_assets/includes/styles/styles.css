@@ -32,6 +32,8 @@ body {
 
 .siteHeader a {
     display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
     align-items: center;
     text-decoration: none;
     height: 100%;
