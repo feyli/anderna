@@ -12,6 +12,7 @@
     <?php include __DIR__ . '/../../modules/controllers/views/templates/header.php'; ?>
     <main>
         <div class="dashboard-container">
+        <h2>Bonjour <?= htmlspecialchars($user_name) ?></h2><br>
         <div class="dash-head">
             <h1>Gestion des Patients</h1>
             <button class="btn-add" onclick="openModal()">Ajouter un Patient</button>
@@ -23,46 +24,120 @@
     <!-- Modal d'ajout de patient -->
     <div id="modalOverlay" class="modal-overlay" onclick="closeModal()"></div>
     <div id="modal" class="modal" style="display: none;">
-        <h2>Nouveau Patient</h2>
-        <form id="patientForm">
-            <div class="form-group">
-                <label for="patientNom" class="form-label">Nom complet</label>
-                <input 
-                    type="text" 
-                    id="patientNom" 
-                    class="form-input"
-                    placeholder="Ex: Jean Dupont"
-                    required
-                >
-            </div>
-
-            <div class="form-group">
-                <label class="form-label">Genre</label>
-                <div class="gender-group">
-                    <div class="gender-option">
-                        <input type="radio" id="genreF" name="genre" value="Femme" checked>
-                        <label for="genreF">Femme</label>
-                    </div>
-                    <div class="gender-option">
-                        <input type="radio" id="genreM" name="genre" value="Homme">
-                        <label for="genreM">Homme</label>
-                    </div>
-                    <div class="gender-option">
-                        <input type="radio" id="genreA" name="genre" value="Autre">
-                        <label for="genreA">Autre</label>
-                    </div>
+    <h2>Nouveau Patient</h2>
+    <form method="POST" id="patientForm" action="">
+        <div class="form-group">
+            <label for="last_name" class="form-label">Nom</label>
+            <input
+                type="text"
+                id="last_name"
+                name="last_name"
+                class="form-input"
+                placeholder="Entrez le nom"
+                required
+            >
+            <label for="first_name" class="form-label">Prénom</label>
+            <input
+                type="text"
+                id="first_name"
+                name="first_name"
+                class="form-input"
+                placeholder="Entrez le prénom"
+                required
+            >
+        </div>
+        
+        <div class="form-group">
+            <label for="birth" class="form-label">Date de naissance</label>
+            <input
+                type="date"
+                id="birth"
+                name="birth"
+                class="form-input"
+                required
+            >
+        </div>
+        
+        <div class="form-group">
+            <label class="form-label">Genre</label>
+            <div class="gender-group">
+                <div class="gender-option">
+                    <input type="radio" id="genreF" name="genre" value="F" checked>
+                    <label for="genreF">Femme</label>
+                </div>
+                <div class="gender-option">
+                    <input type="radio" id="genreM" name="genre" value="H">
+                    <label for="genreM">Homme</label>
+                </div>
+                <div class="gender-option">
+                    <input type="radio" id="genreA" name="genre" value="A">
+                    <label for="genreA">Autre</label>
                 </div>
             </div>
-
-            <div class="modal-buttons">
-                <button type="button" class="btn btn-secondary" onclick="closeModal()">Annuler</button>
-                <button type="submit" class="btn btn-primary">Ajouter</button>
-            </div>
-        </form>
+        </div>
+        
+        <div class="form-group">
+            <label for="email" class="form-label">Email</label>
+            <input
+                type="email"
+                id="email"
+                name="email"
+                class="form-input"
+                placeholder="exemple@email.com"
+                required
+            >
+        </div>
+        
+        <div class="form-group">
+            <label for="phone" class="form-label">Téléphone</label>
+            <input
+                type="tel"
+                id="phone"
+                name="phone"
+                class="form-input"
+                placeholder="06 12 34 56 78"
+                required
+            >
+        </div>
+        
+        <div class="form-group">
+            <label for="address" class="form-label">Adresse</label>
+            <input
+                type="text"
+                id="address"
+                name="address"
+                class="form-input"
+                placeholder="Entrez l'adresse"
+                required
+            >
+        </div>
+        
+        <div class="form-group">
+            <label for="info" class="form-label">Informations médicales</label>
+            <textarea
+                id="info"
+                name="info"
+                class="form-input"
+                placeholder="Allergies, antécédents médicaux, etc."
+                rows="4"
+            ></textarea>
+        </div>
+        
+        <div class="modal-buttons">
+            <button type="button" class="btn btn-secondary" onclick="closeModal()">Annuler</button>
+            <button type="submit" name="submit" class="btn btn-primary">Ajouter</button>
+        </div>
+    </form>
     </div>
     </main>
     <script>
-        let patients = [];
+        <?php if (!empty($patients)): ?>
+        let patients = <?php echo json_encode($patients); ?>;
+        <?php else: ?>
+        let patients = []; 
+        <?php endif; ?>
+
+        console.log(patients);
 
         // Charger les patients au démarrage
         function init() {
@@ -72,55 +147,24 @@
         function openModal() {
             document.getElementById('modalOverlay').style.display = 'block';
             document.getElementById('modal').style.display = 'block';
-            document.getElementById('patientNom').focus();
+            document.getElementById('last_name').focus();
         }
 
         function closeModal() {
             document.getElementById('modalOverlay').style.display = 'none';
             document.getElementById('modal').style.display = 'none';
-            document.getElementById('patientForm').reset();
         }
 
-        function getInitials(name) {
-            return name
-                .split(' ')
-                .map(word => word[0])
-                .join('')
-                .toUpperCase()
-                .substring(0, 2);
-        }
-
-        function addPatient(e) {
-            e.preventDefault();
-            
-            const nom = document.getElementById('patientNom').value.trim();
-            const genre = document.querySelector('input[name="genre"]:checked').value;
-            
-            if (nom) {
-                const patient = {
-                    id: Date.now(),
-                    nom: nom,
-                    genre: genre
-                };
-                
-                patients.push(patient);
-                renderPatients();
-                closeModal();
-                
-                // Animation de succès
-                const cards = document.querySelectorAll('.patient-card');
-                const lastCard = cards[cards.length - 1];
-                if (lastCard) {
-                    lastCard.style.animation = 'none';
-                    setTimeout(() => {
-                        lastCard.style.animation = 'scaleIn 0.5s ease-out';
-                    }, 10);
-                }
-            }
+        function getInitials(firstName, lastName) {
+            const first = firstName ? firstName[0] : '';
+            const last = lastName ? lastName[0] : '';
+            return (first + last).toUpperCase();
         }
 
         function deletePatient(id) {
             if (confirm('Êtes-vous sûr de vouloir supprimer ce patient ?')) {
+                // Ici vous devrez faire un appel AJAX pour supprimer côté serveur
+                // Pour l'instant, on supprime juste côté client
                 patients = patients.filter(p => p.id !== id);
                 renderPatients();
             }
@@ -142,9 +186,9 @@
             
             container.innerHTML = patients.map(patient => `
                 <div class="patient-card">
-                    <div class="patient-avatar">${getInitials(patient.nom)}</div>
-                    <div class="patient-name">${patient.nom}</div>
-                    <span class="patient-genre">${patient.genre}</span>
+                    <div class="patient-avatar">${getInitials(patient.first_name || patient.firstName, patient.last_name || patient.lastName)}</div>
+                    <div class="patient-name">${patient.first_name || patient.firstName || ''} ${patient.last_name || patient.lastName || ''}</div>
+                    <span class="patient-genre">${patient.gender || patient.genre || ''}</span>
                     <div class="patient-actions">
                         <button class="btn-action btn-delete" onclick="deletePatient(${patient.id})">
                             Supprimer
@@ -153,9 +197,6 @@
                 </div>
             `).join('');
         }
-
-        // Event listeners
-        document.getElementById('patientForm').addEventListener('submit', addPatient);
 
         // Fermer le modal avec Escape
         document.addEventListener('keydown', (e) => {

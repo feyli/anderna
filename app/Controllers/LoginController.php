@@ -7,6 +7,13 @@ class LoginController
 {
     public function login()
     {
+        // Check if user is logged in
+        session_start();
+        if (isset($_SESSION['user_id'])) {
+            header('Location: /dash');
+            exit;
+        }
+
         if (isset($_POST['submit'])) {
             $email = $_POST['email'];
             $password = $_POST['password'];
@@ -20,9 +27,8 @@ class LoginController
                 $_SESSION['user_id'] = $result['id'];
                 $_SESSION['user_email'] = $result['email'];
                 $_SESSION['user_name'] = $result['first_name'] . ' ' . $result['last_name'];
-                    
-                //$_SESSION
-                //header('dash.php');
+                header('Location: /dash');
+                exit;
             }
         }
 
