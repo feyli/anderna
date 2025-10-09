@@ -24,6 +24,8 @@ class SignupController
             
             // Call addUser method
             $result = $userManager->addUser($user);
+
+            echo "<script>alert('Votre compte a été créé avec succès.'); window.location.href='/login';</script>";
         }
 
         require __DIR__ . '/../Views/signup.php';
