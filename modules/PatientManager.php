@@ -10,37 +10,53 @@ class PatientManager {
     }
 
     // Ajouter un patient
-    public function addPatient($patient): mysqli_result|bool
+    public function addPatient(Patient $patient): bool
     {
-        $fn = $this->db->real_escape_string($patient->first_name);
-        $ln = $this->db->real_escape_string($patient->last_name);
-        $gender = $this->db->real_escape_string($patient->gender);
-        $birth_date = $this->db->real_escape_string($patient->birth_date);
-        $email = $this->db->real_escape_string($patient->email);
-        $phone = $this->db->real_escape_string($patient->phone);
-        $address = $this->db->real_escape_string($patient->address);
-        $medical_info = $this->db->real_escape_string($patient->medical_info);
-        $doctor_id = intval($patient->doctor_id);
-
         $sql = "INSERT INTO patients (first_name, last_name, gender, birth_date, email, phone, address, medical_info, doctor_id)
-                VALUES ('$fn', '$ln', '$gender', '$birth_date', '$email', '$phone', '$address', '$medical_info', $doctor_id)";
-        return $this->db->query($sql);
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+
+        $stmt = $this->db->prepare($sql);
+        if (!$stmt) {
+            return false;
+        }
+
+        $stmt->bind_param("ssssssssi",
+            $patient->first_name,
+            $patient->last_name,
+            $patient->gender,
+            $patient->birth_date,
+            $patient->email,
+            $patient->phone,
+            $patient->address,
+            $patient->medical_info,
+            $patient->doctor_id
+        );
+
+        return $stmt->execute();
     }
 
     // Supprimer un patient
-    public function deletePatient($id): mysqli_result|bool
+    public function deletePatient($id): bool
     {
-        $id = intval($id);
-        $sql = "DELETE FROM patients WHERE id=$id";
-        return $this->db->query($sql);
+        $sql = "DELETE FROM patients WHERE id = ?";
+        $stmt = $this->db->prepare($sql);
+        if (!$stmt) return false;
+
+        $stmt->bind_param("i", $id);
+        return $stmt->execute();
     }
 
     // Récupérer tous les patients d'un médecin
     public function getPatientsByDoctor($doctor_id): array
     {
-        $doctor_id = intval($doctor_id);
-        $sql = "SELECT * FROM patients WHERE doctor_id=$doctor_id";
-        $result = $this->db->query($sql);
+        $sql = "SELECT * FROM patients WHERE doctor_id = ?";
+        $stmt = $this->db->prepare($sql);
+        if (!$stmt) return [];
+
+        $stmt->bind_param("i", $doctor_id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
         $patients = [];
         while ($row = $result->fetch_assoc()) {
             $patients[] = new Patient($row);
@@ -51,9 +67,14 @@ class PatientManager {
     // Récupérer un patient par son id
     public function getPatientById($id): ?Patient
     {
-        $id = intval($id);
-        $sql = "SELECT * FROM patients WHERE id=$id";
-        $result = $this->db->query($sql);
+        $sql = "SELECT * FROM patients WHERE id = ?";
+        $stmt = $this->db->prepare($sql);
+        if (!$stmt) return null;
+
+        $stmt->bind_param("i", $id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
         if ($result && $result->num_rows > 0) {
             return new Patient($result->fetch_assoc());
         }

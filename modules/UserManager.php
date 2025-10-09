@@ -10,35 +10,53 @@ class UserManager {
     }
 
     // Ajouter un utilisateur
-    public function addUser(User $user): mysqli_result|bool
+    public function addUser(User $user): bool
     {
-        $fn = $this->db->real_escape_string($user->first_name);
-        $ln = $this->db->real_escape_string($user->last_name);
         $genderValue = $user->gender;
         $gender = in_array($genderValue, ['M', 'F', 'X']) ? $genderValue : 'X';
-        $email = $this->db->real_escape_string($user->email);
         $pwd = password_hash($user->pwd, PASSWORD_DEFAULT);
 
         $sql = "INSERT INTO users (first_name, last_name, gender, email, pwd)
-                VALUES ('$fn', '$ln', '$gender', '$email', '$pwd')";
-        return $this->db->query($sql);
+                VALUES (?, ?, ?, ?, ?)";
+
+        $stmt = $this->db->prepare($sql);
+        if (!$stmt) return false;
+
+        $stmt->bind_param("sssss",
+            $user->first_name,
+            $user->last_name,
+            $gender,
+            $user->email,
+            $pwd
+        );
+
+        return $stmt->execute();
     }
 
-    public function deleteUser($id): mysqli_result|bool
+    // Supprimer un utilisateur
+    public function deleteUser($id): bool
     {
-        $id = intval($id);
-        $sql = "DELETE FROM users WHERE id=$id";
-        return $this->db->query($sql);
+        $sql = "DELETE FROM users WHERE id = ?";
+        $stmt = $this->db->prepare($sql);
+        if (!$stmt) return false;
+
+        $stmt->bind_param("i", $id);
+        return $stmt->execute();
     }
 
+    // Connexion d'un utilisateur
     public function login($email, $pwd): false|array|null
     {
-        $email = $this->db->real_escape_string($email);
-        $sql = "SELECT * FROM users WHERE email='$email'";
-        $result = $this->db->query($sql);
+        $sql = "SELECT * FROM users WHERE email = ?";
+        $stmt = $this->db->prepare($sql);
+        if (!$stmt) return false;
+
+        $stmt->bind_param("s", $email);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
         if ($result && $result->num_rows > 0) {
             $userData = $result->fetch_assoc();
-            // Vérification du mot de passe
             if (password_verify($pwd, $userData['pwd'])) {
                 return $userData; // Connexion OK
             }
@@ -51,6 +69,6 @@ class UserManager {
         $stmt = $this->db->prepare("DELETE FROM users WHERE email = ?");
         $stmt->bind_param("s", $email);
         $stmt->execute();
-        return $this->db->affected_rows > 0;
+        return $stmt->affected_rows > 0;
     }
 }
