@@ -1,6 +1,7 @@
 <?php
 require_once dirname(__DIR__, 2) . '/modules/Database.php';
 require_once dirname(__DIR__, 2) . '/modules/User.php';
+require_once __DIR__ . '/../Views/ForgottenPasswordView.php';
 
 class ForgottenPasswordController
 {
@@ -62,6 +63,8 @@ class ForgottenPasswordController
                 echo "<script>alert('Un problème d\'envoi de l\'email de réinitialisation est survenu. Veuillez réessayer.');</script>";
             }
         }
-        require __DIR__ . '/../Views/forgottenPassword.php';
+
+        $view = new ForgottenPasswordView();
+        $view->display();
     }
 }

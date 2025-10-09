@@ -2,6 +2,7 @@
 
 require_once dirname(__DIR__, 2) . '/modules/Database.php';
 require_once dirname(__DIR__, 2) . '/modules/UserManager.php';
+require_once __DIR__ . '/../Views/LoginView.php';
 
 class LoginController
 {
@@ -32,7 +33,7 @@ class LoginController
             }
         }
 
-
-        require __DIR__ . '/../Views/login.php';
+        $view = new LoginView();
+        $view->display();
     }
 }

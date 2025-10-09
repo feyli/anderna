@@ -1,5 +1,7 @@
 <?php
 
+require_once __DIR__ . '/../Views/HomeView.php';
+
 class HomeController
 {
     public function index(): void
@@ -16,6 +18,7 @@ class HomeController
         }
 
         // Sinon, afficher la page d'accueil
-        require __DIR__ . '/../Views/home.php';
+        $view = new HomeView();
+        $view->display();
     }
 }

@@ -1,6 +1,7 @@
 <?php
 require_once dirname(__DIR__, 2) . '/modules/Database.php';
 require_once dirname(__DIR__, 2) . '/modules/PatientManager.php';
+require_once __DIR__ . '/../Views/DashView.php';
 
 class DashController
 {
@@ -80,6 +81,10 @@ class DashController
         // Récupérer les patients après le traitement du POST
         $patients = $patientManager->getPatientsByDoctor($_SESSION['user_id']);
         
-        require __DIR__ . '/../Views/dash.php';
+        $view = new DashView([
+            'user_name' => $user_name,
+            'patients' => $patients
+        ]);
+        $view->display();
     }
 }

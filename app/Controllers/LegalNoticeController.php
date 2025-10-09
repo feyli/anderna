@@ -1,9 +1,12 @@
 <?php
 
+require_once __DIR__ . '/../Views/LegalNoticeView.php';
+
 class LegalNoticeController
 {
     public function legalnotice(): void
     {
-        require __DIR__ . '/../Views/legal-notice.php';
+        $view = new LegalNoticeView();
+        $view->display();
     }
 }

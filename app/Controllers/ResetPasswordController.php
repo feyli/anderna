@@ -1,6 +1,7 @@
 <?php
 require_once dirname(__DIR__, 2) . '/modules/Database.php';
 require_once dirname(__DIR__, 2) . '/modules/User.php';
+require_once __DIR__ . '/../Views/ResetPasswordView.php';
 
 class ResetPasswordController
 {
@@ -53,7 +54,8 @@ class ResetPasswordController
                 exit;
             }
         }
-
+        $view = new ResetPasswordView();
+        $view->display();
         require __DIR__ . '/../Views/resetPassword.php';
     }
 }
