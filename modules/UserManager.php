@@ -10,13 +10,12 @@ class UserManager {
     }
 
     // Ajouter un utilisateur
-    public function addUser($user): mysqli_result|bool
+    public function addUser(User $user): mysqli_result|bool
     {
         $fn = $this->db->real_escape_string($user->first_name);
         $ln = $this->db->real_escape_string($user->last_name);
-        // Convert "Autre" to "X" for database storage
-        $genderValue = ($user->gender === 'Autre') ? 'X' : $user->gender;
-        $gender = $this->db->real_escape_string($genderValue);
+        $genderValue = $this->db->real_escape_string($user->gender);
+        $gender = in_array($genderValue, ['M', 'F', 'X']) ? $this->db->real_escape_string($genderValue) : 'X';
         $email = $this->db->real_escape_string($user->email);
         $pwd = password_hash($user->pwd, PASSWORD_DEFAULT);
 

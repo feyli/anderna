@@ -53,7 +53,7 @@
                             <label for="homme">M</label>
                         </div>
                         <div class="gender-option">
-                            <input type="radio" id="autre" name="genre" value="Autre">
+                            <input type="radio" id="autre" name="genre" value="X">
                             <label for="autre">Autre</label>
                         </div>
                     </div>
