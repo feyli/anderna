@@ -2,7 +2,7 @@
 require_once dirname(__DIR__, 2) . '/modules/Database.php';
 require_once dirname(__DIR__, 2) . '/modules/User.php';
 
-class forgottenPasswordController
+class ForgottenPasswordController
 {
     public function forgot(): void
     {
