@@ -53,21 +53,6 @@
         </div>
     </main>
     <?php
-    require_once dirname(__DIR__, 2) . '/modules/UserManager.php';
-    if (isset($_POST['submit'])) {
-        $email = $_POST['email'];
-        $password = $_POST['password'];
-
-        $database = new DataBase();
-        $userManager = new UserManager($database);
-        $result = $userManager->login($email, $password);
-
-        if ($result) {
-            echo "Login successful!";
-        } else {
-            echo "Login failed!";
-        }
-    }
     include __DIR__ . '/../../modules/controllers/views/templates/footer.php'; ?>
 </body>
 </html>

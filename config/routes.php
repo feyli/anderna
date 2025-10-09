@@ -8,4 +8,5 @@ return [
     '/forgot' => ['controller' => 'ForgottenPasswordController', 'action' => 'forgot'],
     '/reset' => ['controller' => 'ResetPasswordController', 'action' => 'reset'],
     '/legal-notice' => ['controller' => 'LegalNoticeController', 'action' => 'legalnotice'],
+    '/dash' => ['controller' => 'DashController', 'action' => 'dash']
 ];
