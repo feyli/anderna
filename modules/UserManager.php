@@ -14,7 +14,9 @@ class UserManager {
     {
         $fn = $this->db->real_escape_string($user->first_name);
         $ln = $this->db->real_escape_string($user->last_name);
-        $gender = $this->db->real_escape_string($user->gender);
+        // Convert "Autre" to "X" for database storage
+        $genderValue = ($user->gender === 'Autre') ? 'X' : $user->gender;
+        $gender = $this->db->real_escape_string($genderValue);
         $email = $this->db->real_escape_string($user->email);
         $pwd = password_hash($user->pwd, PASSWORD_DEFAULT);
 
@@ -40,7 +42,6 @@ class UserManager {
             // Vérification du mot de passe
             if (password_verify($pwd, $userData['pwd'])) {
                 return $userData; // Connexion OK
-                echo $userData;
             }
         }
         return false;
