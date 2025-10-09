@@ -18,6 +18,22 @@ class DashController
         
         // Récuperer le nom pour l'afficher
         $user_name = $_SESSION['user_name'];
+
+        // Traiter la suppression de patient
+        if (isset($_POST['delete_patient'])) {
+            $patient_id = intval($_POST['patient_id']);
+
+            // Vérifier que le patient appartient bien au médecin connecté
+            $patient = $patientManager->getPatientById($patient_id);
+
+            if ($patient && $patient->doctor_id == $_SESSION['user_id']) {
+                $patientManager->deletePatient($patient_id);
+            }
+
+            // Rediriger pour éviter la resoumission du formulaire
+            header('Location: /dash');
+            exit;
+        }
         
         // Traiter l'ajout de patient AVANT de récupérer la liste
         if (isset($_POST['submit'])) {

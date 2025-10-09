@@ -26,8 +26,40 @@
                 </button>
             </div>
 
-            <div id="patientsContainer" class="patients-grid"></div>
+            <div id="patientsContainer" class="patients-grid">
+                <?php if (empty($patients)): ?>
+                    <div class="empty-state">
+                        <div class="empty-state-icon">👥</div>
+                        <h3>Aucun patient enregistré</h3>
+                        <p style="color: #9ca3af; margin-top: 0.5rem;">Cliquez sur "Ajouter un Patient" pour commencer</p>
+                    </div>
+                <?php else: ?>
+                    <?php foreach ($patients as $patient): ?>
+                        <div class="patient-card">
+                            <div class="patient-avatar">
+                                <?php
+                                $first = !empty($patient->first_name) ? $patient->first_name[0] : '';
+                                $last = !empty($patient->last_name) ? $patient->last_name[0] : '';
+                                echo strtoupper($first . $last);
+                                ?>
+                            </div>
+                            <div class="patient-name"><?= htmlspecialchars($patient->first_name . ' ' . $patient->last_name) ?></div>
+                            <span class="patient-genre"><?= htmlspecialchars($patient->gender) ?></span>
+                            <div class="patient-actions">
+                                <form method="POST" action="/dash" style="display: inline;" onsubmit="return confirm('Êtes-vous sûr de vouloir supprimer ce patient ?');">
+                                    <input type="hidden" name="patient_id" value="<?= $patient->id ?>">
+                                    <button type="submit" name="delete_patient" class="btn-action btn-delete">
+                                        Supprimer
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    <?php endforeach; ?>
+                <?php endif; ?>
+            </div>
         </div>
+
+
 
     <!-- Modal d'ajout de patient -->
     <div id="modalOverlay" class="modal-overlay" onclick="closeModal()"></div>
@@ -136,19 +168,7 @@
     </div>
     </main>
     <script>
-        <?php if (!empty($patients)): ?>
-        let patients = <?php echo json_encode($patients); ?>;
-        <?php else: ?>
-        let patients = []; 
-        <?php endif; ?>
-
-        console.log(patients);
-
-        // Charger les patients au démarrage
-        function init() {
-            renderPatients();
-        }
-
+        // Uniquement pour ouvrir/fermer le modal
         function openModal() {
             document.getElementById('modalOverlay').style.display = 'block';
             document.getElementById('modal').style.display = 'block';
@@ -160,58 +180,12 @@
             document.getElementById('modal').style.display = 'none';
         }
 
-        function getInitials(firstName, lastName) {
-            const first = firstName ? firstName[0] : '';
-            const last = lastName ? lastName[0] : '';
-            return (first + last).toUpperCase();
-        }
-
-        function deletePatient(id) {
-            if (confirm('Êtes-vous sûr de vouloir supprimer ce patient ?')) {
-                // Ici vous devrez faire un appel AJAX pour supprimer côté serveur
-                // Pour l'instant, on supprime juste côté client
-                patients = patients.filter(p => p.id !== id);
-                renderPatients();
-            }
-        }
-
-        function renderPatients() {
-            const container = document.getElementById('patientsContainer');
-            
-            if (patients.length === 0) {
-                container.innerHTML = `
-                    <div class="empty-state">
-                        <div class="empty-state-icon">👥</div>
-                        <h3>Aucun patient enregistré</h3>
-                        <p style="color: #9ca3af; margin-top: 0.5rem;">Cliquez sur "Ajouter un Patient" pour commencer</p>
-                    </div>
-                `;
-                return;
-            }
-            
-            container.innerHTML = patients.map(patient => `
-                <div class="patient-card">
-                    <div class="patient-avatar">${getInitials(patient.first_name || patient.firstName, patient.last_name || patient.lastName)}</div>
-                    <div class="patient-name">${patient.first_name || patient.firstName || ''} ${patient.last_name || patient.lastName || ''}</div>
-                    <span class="patient-genre">${patient.gender || patient.genre || ''}</span>
-                    <div class="patient-actions">
-                        <button class="btn-action btn-delete" onclick="deletePatient(${patient.id})">
-                            Supprimer
-                        </button>
-                    </div>
-                </div>
-            `).join('');
-        }
-
         // Fermer le modal avec Escape
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape') {
                 closeModal();
             }
         });
-
-        // Initialiser l'application
-        init();
     </script>
     <?php include __DIR__ . '/../../modules/controllers/views/templates/footer.php'; ?>
 </body>
