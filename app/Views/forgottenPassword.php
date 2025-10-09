@@ -30,6 +30,7 @@
                 </div>
                 <div class="button-forgot">
                     <button type="submit" class="btn btn-primary">Envoyer</button>
+                    <a type="button" class="btn btn-secondary" href="/login">Retour</a>
                 </div>
             </form>
         </div>
