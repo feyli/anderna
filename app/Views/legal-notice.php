@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <title>Mentions Légales - DashMed</title>
+    <meta name="description" content="Mentions légales de l'application DashMed">
+    <title>Mentions légales - DashMed</title>
     <link rel="stylesheet" href="/_assets/includes/styles/styles-footer.css">
     <link rel="stylesheet" href="/_assets/includes/styles/styles-legal-notice.css">
     <?php include __DIR__ . '/../../modules/controllers/views/templates/head.php'; ?>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
 <?php include __DIR__ . '/../../modules/controllers/views/templates/header.php'; ?>
 <div class="legal-scroll-container">
     <div class="legal-container">
-        <h1>Mentions Légales</h1>
+        <h1>Mentions légales</h1>
         <h2>1. Présentation du site</h2>
         <p>Conformément aux dispositions des articles 6-III et 19 de la Loi n° 2004-575 du 21 juin 2004 pour la Confiance dans l'économie numérique, nous portons à la connaissance des utilisateurs du site les informations suivantes :</p>
         <p><strong>Nom officiel :</strong> DashMed</p>

@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Page d'inscription à l'application DashMed">
     <link rel="stylesheet" href="/_assets/includes/styles/styles.css">
     <link rel="stylesheet" href="/_assets/includes/styles/styles-login.css">
     <link rel="stylesheet" href="/_assets/includes/styles/styles-footer.css">
