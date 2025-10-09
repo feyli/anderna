@@ -1,6 +1,7 @@
 <?php
 
 require_once dirname(__DIR__, 2) . '/modules/Database.php';
+require_once dirname(__DIR__, 2) . '/modules/User.php';
 require_once dirname(__DIR__, 2) . '/modules/UserManager.php';
 
 class SignupController
@@ -9,13 +10,14 @@ class SignupController
     {
         if (isset($_POST['submit'])) {
             // Create user object
-            $user = new stdClass();
-            $user->first_name = $_POST['nom'];
-            $user->last_name = $_POST['prenom'];
-            $user->gender = $_POST['genre'];
-            $user->email = $_POST['email'];
-            $user->pwd = $_POST['motdepasse'];
-            
+            $user = new User([
+                'first_name' => $_POST['nom'],
+                'last_name' => $_POST['prenom'],
+                'gender' => $_POST['genre'],
+                'email' => $_POST['email'],
+                'pwd' => $_POST['motdepasse']
+            ]);
+
             // Initialize database and UserManager (same as login!)
             $database = new DataBase();
             $userManager = new UserManager($database);
