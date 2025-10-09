@@ -5,7 +5,7 @@ require_once dirname(__DIR__, 2) . '/modules/UserManager.php';
 
 class LoginController
 {
-    public function login()
+    public function login(): void
     {
         if (isset($_POST['submit'])) {
             $email = $_POST['email'];
