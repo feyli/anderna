@@ -14,8 +14,8 @@ class UserManager {
     {
         $fn = $this->db->real_escape_string($user->first_name);
         $ln = $this->db->real_escape_string($user->last_name);
-        $genderValue = $this->db->real_escape_string($user->gender);
-        $gender = in_array($genderValue, ['M', 'F', 'X']) ? $this->db->real_escape_string($genderValue) : 'X';
+        $genderValue = $user->gender;
+        $gender = in_array($genderValue, ['M', 'F', 'X']) ? $genderValue : 'X';
         $email = $this->db->real_escape_string($user->email);
         $pwd = password_hash($user->pwd, PASSWORD_DEFAULT);
 
