@@ -14,7 +14,7 @@
     <?php include __DIR__ . '/../../modules/controllers/views/templates/header.php'; ?>
     <main>
         <div class="forgot-container">
-            <h1 class="forgot-title">Mots de passe oubliés</h1>
+            <h1 class="forgot-title">Mot de passe oublié</h1>
 
             <form method="POST" id="forgotForm">
                 <div class="form-group">
