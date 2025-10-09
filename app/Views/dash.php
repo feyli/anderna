@@ -27,7 +27,7 @@
     <h2>Nouveau Patient</h2>
     <form method="POST" id="patientForm" action="">
         <div class="form-group">
-            <label for="last_name" class="form-label">Nom</label>
+            <label for="last_name" class="form-label">Nom*</label>
             <input
                 type="text"
                 id="last_name"
@@ -36,7 +36,7 @@
                 placeholder="Entrez le nom"
                 required
             >
-            <label for="first_name" class="form-label">Prénom</label>
+            <label for="first_name" class="form-label">Prénom*</label>
             <input
                 type="text"
                 id="first_name"
@@ -48,7 +48,7 @@
         </div>
         
         <div class="form-group">
-            <label for="birth" class="form-label">Date de naissance</label>
+            <label for="birth" class="form-label">Date de naissance*</label>
             <input
                 type="date"
                 id="birth"
@@ -62,15 +62,15 @@
             <label class="form-label">Genre</label>
             <div class="gender-group">
                 <div class="gender-option">
-                    <input type="radio" id="genreF" name="genre" value="F" checked>
+                    <input type="radio" id="genreF" name="gender" value="F" checked>
                     <label for="genreF">Femme</label>
                 </div>
                 <div class="gender-option">
-                    <input type="radio" id="genreM" name="genre" value="H">
+                    <input type="radio" id="genreM" name="gender" value="M">
                     <label for="genreM">Homme</label>
                 </div>
                 <div class="gender-option">
-                    <input type="radio" id="genreA" name="genre" value="A">
+                    <input type="radio" id="genreA" name="gender" value="O">
                     <label for="genreA">Autre</label>
                 </div>
             </div>
@@ -84,7 +84,6 @@
                 name="email"
                 class="form-input"
                 placeholder="exemple@email.com"
-                required
             >
         </div>
         
@@ -96,7 +95,6 @@
                 name="phone"
                 class="form-input"
                 placeholder="06 12 34 56 78"
-                required
             >
         </div>
         
@@ -108,7 +106,6 @@
                 name="address"
                 class="form-input"
                 placeholder="Entrez l'adresse"
-                required
             >
         </div>
         

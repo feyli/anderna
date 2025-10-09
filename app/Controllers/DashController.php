@@ -25,7 +25,29 @@ class DashController
             $patient->first_name = trim($_POST['first_name']);
             $patient->last_name = trim($_POST['last_name']);
             $patient->birth_date = $_POST['birth'];
-            $patient->gender = $_POST['genre'];
+
+            // Normalisation et validation du genre
+            $rawGender = null;
+            if (!empty($_POST['gender'])) {
+                $rawGender = $_POST['gender'];
+            } elseif (!empty($_POST['genre'])) {
+                // Fallback si ancien formulaire envoie encore 'genre'
+                $rawGender = $_POST['genre'];
+            }
+
+            $rawGender = $rawGender !== null ? strtoupper(trim($rawGender)) : '';
+
+            // Mapping pour correspondre à ENUM('M','F','O')
+            $genderMap = [
+                'H' => 'M', // au cas où
+                'M' => 'M',
+                'F' => 'F',
+                'A' => 'O',
+                'O' => 'O'
+            ];
+
+            $patient->gender = $genderMap[$rawGender] ?? 'O';
+
             $patient->email = trim($_POST['email']);
             $patient->phone = trim($_POST['phone']);
             $patient->address = trim($_POST['address']);
