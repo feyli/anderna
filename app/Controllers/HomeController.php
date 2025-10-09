@@ -2,7 +2,7 @@
 
 class HomeController
 {
-    public function index()
+    public function index(): void
     {
         require __DIR__ . '/../Views/home.php';
     }

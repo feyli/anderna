@@ -4,7 +4,7 @@ require_once dirname(__DIR__, 2) . '/modules/User.php';
 
 class resetPasswordController
 {
-    public function reset()
+    public function reset(): void
     {
         $db = new Database();
         $conn = $db->getConnection();

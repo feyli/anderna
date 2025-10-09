@@ -8,13 +8,13 @@
     <link rel="stylesheet" href="/_assets/includes/styles/styles.css">
     <link rel="stylesheet" href="/_assets/includes/styles/styles-reset.css">
     <?php include __DIR__ . '/../../modules/controllers/views/templates/head.php'; ?>
-    <title>Réinitialiser Mots de Passe</title>
+    <title>Réinitialiser le mot de passe</title>
 </head>
 <body>
 <?php include __DIR__ . '/../../modules/controllers/views/templates/header.php'; ?>
 <main>
     <div class="reset-container">
-        <h1 class="reset-title">Réinitialiser Mots de Passe</h1>
+        <h1 class="reset-title">Réinitialiser le mot de passe</h1>
 
         <form method="POST" id="resetForm">
             <div class="form-group">

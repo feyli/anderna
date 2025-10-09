@@ -3,14 +3,15 @@ require_once 'Database.php';
 require_once 'User.php';
 
 class UserManager {
-    private $db;
+    private mysqli $db;
 
     public function __construct(Database $database) {
         $this->db = $database->getConnection();
     }
 
     // Ajouter un utilisateur
-    public function addUser($user) {
+    public function addUser($user): mysqli_result|bool
+    {
         $fn = $this->db->real_escape_string($user->first_name);
         $ln = $this->db->real_escape_string($user->last_name);
         $gender = $this->db->real_escape_string($user->gender);
@@ -22,13 +23,15 @@ class UserManager {
         return $this->db->query($sql);
     }
 
-    public function deleteUser($id) {
+    public function deleteUser($id): mysqli_result|bool
+    {
         $id = intval($id);
         $sql = "DELETE FROM users WHERE id=$id";
         return $this->db->query($sql);
     }
 
-    public function login($email, $pwd) {
+    public function login($email, $pwd): false|array|null
+    {
         $email = $this->db->real_escape_string($email);
         $sql = "SELECT * FROM users WHERE email='$email'";
         $result = $this->db->query($sql);
@@ -42,11 +45,11 @@ class UserManager {
         return false;
     }
 
-    public function deleteUserByEmail($email) {
+    public function deleteUserByEmail($email): bool
+    {
         $stmt = $this->db->prepare("DELETE FROM users WHERE email = ?");
         $stmt->bind_param("s", $email);
         $stmt->execute();
         return $this->db->affected_rows > 0;
     }
 }
-?>

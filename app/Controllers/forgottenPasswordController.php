@@ -1,10 +1,16 @@
 <?php
+
+use Random\RandomException;
+
 require_once dirname(__DIR__, 2) . '/modules/Database.php';
 require_once dirname(__DIR__, 2) . '/modules/User.php';
 
 class forgottenPasswordController
 {
-    public function forgot()
+    /**
+     * @throws RandomException
+     */
+    public function forgot(): void
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['email'])) {
             $email = trim($_POST['email']);
