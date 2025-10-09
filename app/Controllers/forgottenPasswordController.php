@@ -1,15 +1,9 @@
 <?php
-
-use Random\RandomException;
-
 require_once dirname(__DIR__, 2) . '/modules/Database.php';
 require_once dirname(__DIR__, 2) . '/modules/User.php';
 
 class forgottenPasswordController
 {
-    /**
-     * @throws RandomException
-     */
     public function forgot(): void
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['email'])) {
@@ -53,7 +47,8 @@ class forgottenPasswordController
             $resetLink = "https://dashmed.feyli.dev/reset?token=" . $token;
 
             $headers = "From: noreply@dashmed.feyli.dev\r\n";
-            $headers .= "To: '$email'\r\n";
+            $headers .= "MIME-Version: 1.0\r\n";
+            $headers .= "Content-type: text/plain; charset=UTF-8\r\n";
             $headers .= "X-Mailer: PHP/" . phpversion();
             $subject = "Réinitialisation de votre mot de passe";
             $message = "Bonjour,\n\nCliquez sur ce lien pour réinitialiser votre mot de passe :\n$resetLink\n\nCe lien expirera dans 10 minutes.";
@@ -64,7 +59,7 @@ class forgottenPasswordController
             }
             else
             {
-                echo "<script>alert('Un problème d\'envoie de l\'email de réinitialisation est survenu. Veuillez réessayer.');</script>";
+                echo "<script>alert('Un problème d\'envoi de l\'email de réinitialisation est survenu. Veuillez réessayer.');</script>";
             }
         }
         require __DIR__ . '/../Views/forgottenPassword.php';
