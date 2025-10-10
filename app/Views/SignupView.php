@@ -54,18 +54,18 @@ class SignupView extends BaseView
                 </div>
 
                 <div class="form-group">
-                    <label class="form-label">Genre :</label>
+                    <label class="form-label">Genre*</label>
                     <div class="gender-group">
                         <div class="gender-option">
-                            <input type="radio" id="femme" name="genre" value="F">
+                            <input type="radio" id="femme" name="genre" value="F" required>
                             <label for="femme">F</label>
                         </div>
                         <div class="gender-option">
-                            <input type="radio" id="homme" name="genre" value="M">
+                            <input type="radio" id="homme" name="genre" value="M" required>
                             <label for="homme">M</label>
                         </div>
                         <div class="gender-option">
-                            <input type="radio" id="autre" name="genre" value="X">
+                            <input type="radio" id="autre" name="genre" value="X" required>
                             <label for="autre">Autre</label>
                         </div>
                     </div>
