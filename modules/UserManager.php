@@ -9,6 +9,20 @@ class UserManager {
         $this->db = $database->getConnection();
     }
 
+    // Vérifier si un utilisateur existe avec cet email
+    public function userExistsByEmail(string $email): bool
+    {
+        $sql = "SELECT id FROM users WHERE email = ?";
+        $stmt = $this->db->prepare($sql);
+        if (!$stmt) return false;
+
+        $stmt->bind_param("s", $email);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        return $result && $result->num_rows > 0;
+    }
+
     // Ajouter un utilisateur
     public function addUser(User $user): bool
     {

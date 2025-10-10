@@ -23,10 +23,21 @@ class SignupController
             $database = new DataBase();
             $userManager = new UserManager($database);
             
+            // Check if user already exists with this email
+            if ($userManager->userExistsByEmail($user->email)) {
+                echo "<script>alert('Un compte existe déjà avec cette adresse email.'); window.location.href='/signup';</script>";
+                return;
+            }
+
             // Call addUser method
             $result = $userManager->addUser($user);
 
-            echo "<script>alert('Votre compte a été créé avec succès.'); window.location.href='/login';</script>";
+            if ($result) {
+                echo "<script>alert('Votre compte a été créé avec succès.'); window.location.href='/login';</script>";
+            } else {
+                echo "<script>alert('Une erreur est survenue lors de la création du compte.'); window.location.href='/signup';</script>";
+            }
+            return;
         }
 
         $view = new SignupView();
