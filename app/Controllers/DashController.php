@@ -38,7 +38,7 @@ class DashController
         
         // Traiter l'ajout de patient AVANT de récupérer la liste
         if (isset($_POST['submit'])) {
-            $patient = new stdClass();
+            $patient = new Patient();
             $patient->first_name = trim($_POST['first_name']);
             $patient->last_name = trim($_POST['last_name']);
             $patient->birth_date = $_POST['birth'];
@@ -71,7 +71,7 @@ class DashController
             $patient->medical_info = trim($_POST['info']);
             $patient->doctor_id = $_SESSION['user_id'];
             
-            $result = $patientManager->addPatient($patient);
+            $patientManager->addPatient($patient);
             
             // Rediriger pour éviter la resoumission du formulaire
             header('Location: /dash');
