@@ -56,6 +56,5 @@ class ResetPasswordController
         }
         $view = new ResetPasswordView();
         $view->display();
-        require __DIR__ . '/../Views/resetPassword.php';
     }
 }
